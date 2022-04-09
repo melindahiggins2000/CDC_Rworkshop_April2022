@@ -2,7 +2,7 @@
 
 -----
 
-by Melinda Higgins, PhD
+by Melinda Higgins, PhD; [https://melindahiggins.netlify.app/](https://melindahiggins.netlify.app/)
 
 -----
 
@@ -63,8 +63,4 @@ This workshop will cover:
 | 15:40 - 17:00 | module 10        |
 | 17:00 - 17:30 | post workshop Q&A and one-on-one help |
 
-
-## Instructor - Melinda Higgins, PhD
-
-[https://melindahiggins.netlify.app/](https://melindahiggins.netlify.app/)
 
