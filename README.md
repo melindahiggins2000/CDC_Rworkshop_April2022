@@ -6,10 +6,10 @@ by Melinda Higgins, PhD; [https://melindahiggins.netlify.app/](https://melindahi
 
 -----
 
-* TOC 2
+* TOC 1
 {:toc}
 
-## Overview
+# Overview
 
 This workshop will cover:
 * An introduction to R and RStudio – getting familiar with the R language and working in the RStudio IDE (integrated development environment);
@@ -21,7 +21,7 @@ This workshop will cover:
 * [time permitting] data merging including joins and restructuring rows and columns (long to wide datasets and visa-versa); introduction to other reporting and communication formats such as dashboard, websites, book-format templates and more; introduction to statistical models and analyses using R (such as linear and logistic regression); or other topics as requested by attendees.
 
 
-### DAY 1: April 21, 2022
+# DAY 1: April 21, 2022
 
 -----
 
@@ -44,7 +44,7 @@ This workshop will cover:
 | 17:00 - 17:30 | post workshop Q&A and one-on-one help |
 
 
-### DAY 2: April 22, 2022
+# DAY 2: April 22, 2022
 
 -----
 
