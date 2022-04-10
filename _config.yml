@@ -3,3 +3,4 @@ plugins:
   - jemoji
 title: Melinda Higgins, PhD
 description: Director of Biostatistics and Data Core - ONR; Research Professor
+markdown: kramdown
