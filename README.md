@@ -6,10 +6,7 @@ by Melinda Higgins, PhD; [https://melindahiggins.netlify.app/](https://melindahi
 
 -----
 
-* TOC 1
 * TOC 2
-   - toc2 sub 1
-   - toc2 sub 2
 {:toc}
 
 ## Overview
