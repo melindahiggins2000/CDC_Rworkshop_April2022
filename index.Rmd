@@ -1,7 +1,7 @@
 ---
-title: "CDC workshop index"
-author: "Melinda Higgins"
-date: "4/10/2022"
+title: "CDC R Workshop April 21-22, 2022"
+author: "[Melinda Higgins, PhD](https://melindahiggins.netlify.app/)"
+date: "last updated 4/10/2022"
 output:
   rmdformats::downcute:
     self_contained: true
@@ -15,22 +15,101 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+-----
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# Overview
 
-```{r cars}
-summary(cars)
-```
+This workshop will cover:
+* An introduction to R and RStudio – getting familiar with the R language and working in the RStudio IDE (integrated development environment);
+* Learning about data structures, getting into and out of R, cleaning data, intro to data wrangling;
+* Performing basic statistical analyses and models plus formatting output (statistics and tables) from R; 
+* Visualizing data and models with ggplot2; 
+* Brief intro to making simple choropleth maps; and
+* Getting started writing reports/dynamic documentation (basic principle of reproducible research) using RMarkdown and knitr;
+* [time permitting] data merging including joins and restructuring rows and columns (long to wide datasets and visa-versa); introduction to other reporting and communication formats such as dashboard, websites, book-format templates and more; introduction to statistical models and analyses using R (such as linear and logistic regression); or other topics as requested by attendees.
 
-## Including Plots
+# DAY 1: April 21, 2022
 
-You can also embed plots, for example:
+-----
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+:spiral_calendar: April 21, 2022  
+:alarm_clock:     09:00 - 17:30
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Schedule
+
+| Time          | Activity         |
+| :------------ | :--------------- |
+| 09:00 - 10:15 | module 1         |
+| 10:15 - 10:30 | break            |
+| 10:30 - 12:00 | module 2         |
+| 12:00 - 13:00 | LUNCH            |
+| 13:00 - 14:15 | module 3         |
+| 14:15 - 14:25 | short break      |
+| 14:25 - 15:30 | module 4         |
+| 15:30 - 15:40 | short break      |
+| 15:40 - 17:00 | module 5         |
+| 17:00 - 17:30 | post workshop Q&A and one-on-one help |
+
+## Day 1 - Module 1
+
+describe module 1 
+
+## Day 1 - Module 2
+
+describe module 2
+
+## Day 1 - Module 3
+
+describe module 3
+
+## Day 1 - Module 4
+
+describe module 4
+
+## Day 1 - Module 5
+
+describe module 5
+
+
+# DAY 2: April 22, 2022
+
+-----
+
+:spiral_calendar: April 22, 2022  
+:alarm_clock:     09:00 - 17:30
+
+## Schedule
+
+| Time          | Activity         |
+| :------------ | :--------------- |
+| 09:00 - 10:15 | module 6         |
+| 10:15 - 10:30 | break            |
+| 10:30 - 12:00 | module 7         |
+| 12:00 - 13:00 | LUNCH            |
+| 13:00 - 14:15 | module 8         |
+| 14:15 - 14:25 | short break      |
+| 14:25 - 15:30 | module 9         |
+| 15:30 - 15:40 | short break      |
+| 15:40 - 17:00 | module 10        |
+| 17:00 - 17:30 | post workshop Q&A and one-on-one help |
+
+## Day 2 - Module 6
+
+describe module 6
+
+## Day 2 - Module 7
+
+describe module 7
+
+## Day 2 - Module 8
+
+describe module 8
+
+## Day 2 - Module 9
+
+describe module 9
+
+## Day 2 - Module 10
+
+describe module 10
