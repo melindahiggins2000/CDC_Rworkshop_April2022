@@ -1,4 +1,5 @@
 # CDC R Workshop April 21-22, 2022
+{:.no_toc}
 
 -----
 
