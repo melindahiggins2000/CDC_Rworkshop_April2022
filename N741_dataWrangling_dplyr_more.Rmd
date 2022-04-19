@@ -1,0 +1,258 @@
+---
+title: "N741 - Data Wrangling - learning dplyr and more tidyverse packages"
+author: "Melinda Higgins"
+date: "2/1/2022"
+output:
+  html_document: default
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+
+## R Packages needed for this Rmarkdown and exercises for today
+
+* [`rmarkdown`](https://rmarkdown.rstudio.com/)
+* [`knitr`](https://yihui.org/knitr/)
+* [`printr`](https://yihui.org/printr/)
+* [`carData`](https://cran.r-project.org/web/packages/carData/index.html)
+* [`dplyr`](https://dplyr.tidyverse.org/) - see _note_ 
+* [`tibble`](https://tibble.tidyverse.org/) - see _note_
+* [`ggpubr`](https://rpkgs.datanovia.com/ggpubr/)
+* [`rstatix`](https://rpkgs.datanovia.com/rstatix/)
+* OPTIONAL [`tidyverse`](https://www.tidyverse.org/) - see _note_
+
+_NOTE: The `dplyr` and `tibble` packages are all part of the ["CORE Tidyverse"](https://www.tidyverse.org/), so you can also simply load the tidyverse package. So, when you load `library(tidyverse)`, you simultaneously load ALL of these core packages:_
+
+* `ggplot2`
+* `tibble`
+* `tidyr`
+* `readr`
+* `purrr`
+* `dplyr`
+* `stringr`
+* `forcats`
+
+
+```{r setup, include=FALSE}
+# setup knitr chunk options
+# echo = TRUE will show code in chunks
+knitr::opts_chunk$set(echo = TRUE)
+# warning = FALSE will not show warning messages
+knitr::opts_chunk$set(warning = FALSE)
+# message = FALSE will not show other messages
+knitr::opts_chunk$set(message = FALSE)
+# error = TRUE will continue to knit the document
+# even if there are errors. Set error = FALSE
+# if you want the knit process stop on errors
+knitr::opts_chunk$set(error = TRUE)
+
+# USEFUL package - load printr package
+# by loading this at the beginning, anything
+# that should be shown as a table will be
+library(printr)
+```
+
+## Load the `Davis` dataset from the `carData` package
+
+```{r}
+# load the carData package
+# we'll work with the Davis dataset
+# which is a part of this package
+
+library(carData)
+data(Davis)
+```
+
+## Take a quick look at the `Davis` dataset
+
+Load the `tibble` package and use the `glimpse()` function to take a quick peek at the `Davis` dataset.
+
+The `Davis` dataset has 200 rows and 5 columns. The subjects were men and women engaged in regular exercise. There are some missing data. The 5 variables are:
+
+* sex
+    - a factor variable with 2 levels for F, female and M, male
+* weight
+    - a numeric variable for **measured** weight in kg
+* height
+    - a numeric variable for **measured** height in cm
+* repwt
+    - a numeric variable for **self-reported** weight in kg
+* repht
+    - a numeric variable for **self-reported** height in cm
+
+To learn more about this dataset run `help(Davis, package = "carData")`.
+
+```{r}
+library(tibble)
+glimpse(Davis)
+```
+
+## Compute BMI from measured `height` and `weight`
+
+The equation for BMI is
+
+$$BMI = \frac{weight (kg)}{[height (m)]^2}$$
+
+To compute BMI we need to:
+
+1. convert `height` in cm to m
+2. then compute BMI
+
+So, let's add 2 new variables to our dataset using the `mutate()` function from the `dplyr` package.
+
+
+```{r}
+# load dplyr package
+library(dplyr)
+
+Davis2 <- Davis %>%
+  mutate(height_m = height/100) %>%
+  mutate(bmi = weight / ((height_m)^2))
+```
+
+add some text
+
+## BMI histograms by `sex`
+
+Let's try out the `ggpubr` package and use the `ggdensity()` function.
+
+Learn more at [https://rpkgs.datanovia.com/ggpubr/](https://rpkgs.datanovia.com/ggpubr/).
+
+_NOTE: Try custom colors with hex colors, [https://www.colorbook.io/hexcolors/view/00AFBB](https://www.colorbook.io/hexcolors/view/00AFBB)._
+
+```{r}
+# try custom colors using hex codes
+# see https://www.colorbook.io/hexcolors/view/00AFBB 
+library(ggpubr)
+ggdensity(Davis2, x = "bmi",
+   add = "mean", rug = TRUE,
+   color = "sex", fill = "sex",
+   palette = c("#D689E8", "#00AFBB"))
+```
+
+Well this looks odd. I'm guessing there is an outlier somewhere. We could open the data and look at it in a viewer, but let's try to do it with code.
+
+The `dplyr` package also has an `arrange()` function. So, let's sort the data and see if we can spot which case has the really large BMI value.
+
+The default is to arrange (or sort) the rows in ascending order. But we want to see the largest value, so we'll add `desc()` to get the descending sorted order.
+
+```{r}
+Davis2 %>%
+  arrange(desc(bmi)) %>%
+  head()
+```
+
+If I had to guess, it looks like the measured height and weight were flipped for case 12. But for now let's filter this case out and remake our plot. 
+
+So, we'll use the `filter()` function also from `dplyr` package.
+
+```{r}
+Davis3 <- Davis2 %>%
+  filter(bmi < 50)
+
+ggdensity(Davis3, x = "bmi",
+   add = "mean", rug = TRUE,
+   color = "sex", fill = "sex",
+   palette = c("#D689E8", "#00AFBB")) +
+  ggtitle("BMI from Measured Weight and Height")
+```
+
+## Get summary statistics of weight, height and bmi
+
+Let's get the mean for weight, height and bmi
+
+```{r}
+Davis3 %>%
+  summarise(across(c(weight, height, bmi),
+            ~ mean(.x, na.rm = TRUE))
+  )
+```
+
+Add `group_by()` to get the means by `sex`
+
+```{r}
+Davis3 %>%
+  group_by(sex) %>%
+  summarise(across(c(weight, height, bmi),
+            ~ mean(.x, na.rm = TRUE))
+  )
+```
+
+## This is easier with `get_summary_stats()` from `rstatix` package
+
+Let's try this again and get more stats.
+
+First use the `select()` function from `dplyr` and then get the summary stats.
+
+```{r}
+library(rstatix)
+
+Davis3 %>% 
+  select(weight, height, bmi) %>%
+  get_summary_stats()
+```
+
+Let's just get mean and sd (standard deviation) and add `group_by()` to get the stats by `sex`. _NOTE: Add `sex` to the `select()` step._
+
+```{r}
+Davis3 %>% 
+  group_by(sex) %>%
+  select(sex, weight, height, bmi) %>%
+  get_summary_stats(type = "mean_sd")
+```
+
+## Compare measured vs self-report heights and weights by sex
+
+I've often heard a saying that "women weigh less and men are taller on paper". But let's take a look at the discrepancies between the directly measures `height` and `weight` to the self-reports `repwt` and `repht` - overall and by `sex.`
+
+```{r}
+Davis3 <- Davis3 %>%
+  mutate(diff_wt_repwt = weight - repwt) %>%
+  mutate(diff_ht_repht = height - repht)
+```
+
+Now that we've computed these differences, let's look at these differences by sex. Differences < 0 indicate that the self-reported `repwt` or `repht` were larger than the measured `weight` or `height.`
+
+Let's keep using the `ggpubr` package and try the `ggboxplot()` function and add a reference line, a title and a subtitle using functions from `ggplot2` package which is loaded with `ggpubr`. We'll also clean up the x-axis and y-axis labels.
+
+```{r}
+ggboxplot(Davis3, x = "sex", y = "diff_wt_repwt",
+                color = "sex", 
+                palette =c("#D689E8", "#00AFBB"),
+                add = "jitter", shape = "sex") +
+  geom_hline(yintercept = 0, color = "red") +
+  labs(title = "Difference in Weights = weight - repwt",
+       subtitle = "diff > 0 when measured weight > reported weight") +
+  xlab("Biological Sex") +
+  ylab("Difference = Measured Weight - Reported Weight")
+  
+```
+
+It looks like for females, their actual weights are larger than their self-reported weights.
+
+Let's take a look at the differences in the heights.
+
+```{r}
+ggboxplot(Davis3, x = "sex", y = "diff_ht_repht",
+                color = "sex", 
+                palette =c("#D689E8", "#00AFBB"),
+                add = "jitter", shape = "sex") +
+  geom_hline(yintercept = 0, color = "red") +
+  labs(title = "Difference in Heights = height - repht",
+       subtitle = "diff > 0 when measured height > reported height")  +
+  xlab("Biological Sex") +
+  ylab("Difference = Measured Height - Reported Height")
+```
+
+From this plot it looks like the measured heights are higher than the self-reported heights for both females and males.
+
+Get summary stats of these differences by `sex`.
+
+```{r}
+Davis3 %>% 
+  group_by(sex) %>%
+  select(sex, diff_wt_repwt, diff_ht_repht) %>%
+  get_summary_stats(type = "mean_sd")
+```
+
+

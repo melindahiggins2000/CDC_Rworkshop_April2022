@@ -33,7 +33,7 @@ This workshop will cover:
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:15 | module 1         |
+| 09:00 - 10:15 | module 1 [slides]() [Rscript]()         |
 | 10:15 - 10:30 | break            |
 | 10:30 - 12:00 | module 2         |
 | 12:00 - 13:00 | LUNCH            |

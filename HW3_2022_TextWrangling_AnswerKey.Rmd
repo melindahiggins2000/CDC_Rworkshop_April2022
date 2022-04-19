@@ -1,0 +1,458 @@
+---
+title: "HW3 on Text Wrangling - ANSWER KEY"
+author: "Vicki Hertzberg & Melinda Higgins"
+date: "02/08/2022"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+### Homework 3 - Text Wrangling
+
+For this homework you will mainly be working with these packages:
+
+* `stringr` - learn more at:
+    - [https://stringr.tidyverse.org/](https://stringr.tidyverse.org/)
+    - [https://r4ds.had.co.nz/strings.html](https://r4ds.had.co.nz/strings.html)
+* `stringi` - learn more at:
+    - [https://cran.r-project.org/web/packages/stringi/index.html](https://cran.r-project.org/web/packages/stringi/index.html)
+    - [https://r4ds.had.co.nz/strings.html#stringi](https://r4ds.had.co.nz/strings.html#stringi)
+
+Other packages in use:
+
+* `printr` - for making nice tables in output when knitted
+* `dplyr` - for BONUS 2 below
+* `tidyr` - for BONUS 2 below
+
+```{r setup chunk 0, include=FALSE}
+# set knitr options
+# show code
+knitr::opts_chunk$set(echo = TRUE)
+# hide warnings and messages in output
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+# turn on nice tables in output
+library(printr)
+
+# load packages
+library(stringr)
+library(stringi)
+```
+
+### Section 1.
+
+Suppose we have a vector `vText` as follows:
+
+```{r Intro 1}
+vText <- c('nurse', 'nut', 'ninja', 'nutrient', 'under', 'unusual')
+```
+
+We want to write a regular expression that matches `n`, `nu`, `un`, or `unu` in `vText` and replaces the matching patterns with `.`. To do this, the R code is as follows:
+
+```{r}
+pattern <- 'u?nu?'
+gsub(pattern, '.', vText)
+```
+
+#### Problem 1.
+
+Suppose you have another vector vText as follows:
+
+```{r Problem 1}
+vText <- c("bubble", "rubble", "trouble", "couple", 
+           "bump", "proud")
+```
+
+You want to match `bu`, `ub`, `u` and `bub` and replace with `.`.
+
+Write the R code that will make that happen.
+
+Hint: You want to end up with:
+  `".ble"   "r.ble"  "tro.le" "co.ple" ".mp"    "pro.d"`
+
+#### Answer to Problem 1.
+
+```{r Answer 1}
+#Insert the code to answer the problem here.
+pattern <- 'b?ub?'
+gsub(pattern, '.', vText)
+```
+
+### Section 2.
+
+You have 3 strings of text that you wish to merge. One way to do this is to use the `paste()` function.
+
+```{r Intro 2}
+x <- "I AM SAM. I AM SAM. SAM I AM."
+y <- "THAT SAM-I-AM! THAT SAM-I-AM! I DO NOT LIKE THAT SAM-I-AM!"
+z <- "DO YOU LIKE GREEN EGGS AND HAM?"
+
+paste(x, y, z, collapse = NULL)
+```
+
+## BONUS 1
+
+**Extra credit:** What is the difference if you use the `paste0()` function instead of the `paste()` function above?
+
+_INSERT EXTRA CREDIT ANSWER HERE for BONUS 1_
+
+```{r}
+x <- "I AM SAM. I AM SAM. SAM I AM."
+y <- "THAT SAM-I-AM! THAT SAM-I-AM! I DO NOT LIKE THAT SAM-I-AM!"
+z <- "DO YOU LIKE GREEN EGGS AND HAM?"
+
+paste0(x, y, z, collapse = NULL)
+```
+
+ANSWER: Using `paste0()` gets rid of spaces between each test string.
+
+#### Problem 2.
+
+Suppose that you now have 4 lines of text as follows:
+
+```{r Problem 2}
+W <- "You may write me down in history"
+X <- "With your bitter, twisted lies,"
+Y <- "You may tread me in the very dirt"
+Z <- "But still, like dust, I'll rise."
+```
+
+Write the R code below to merge these 3 strings.
+
+#### Answer to Problem 2.
+
+```{r Answer 2}
+#Insert the code to answer the problem here.
+paste(W, X, Y, Z, collapse = NULL)
+```
+
+### Section 3.
+
+An alternative way to merge these text strings is to concatenate them with the `str_c` function from the `stringr` package.
+
+Suppose we want to concatenate the 3 strings we did above, but also NA. We can do this in these two ways. What is the difference? (Answer to yourself)
+
+```{r Intro 3}
+paste(X, Y, Z, NA, collapse = NULL)
+str_c(X, Y, Z, NA, collapse = NULL)
+```
+
+What is the difference between the two results? (Answer to yourself.)
+
+_The function `str_c()` from the `stringr` package handles the `NA` differently. With the `NA` in the list, `str_c()` returns `NA` whereas `paste()` ignores the `NA`._
+
+#### Problem 3.
+
+We now want to concatenate our 4 vectors and NA. Do this using both methods.
+
+```{r Problem 3}
+W <- "You may write me down in history"
+X <- "With your bitter, twisted lies,"
+Y <- "You may tread me in the very dirt"
+Z <- "But still, like dust, I'll rise."
+```
+
+#### Answer to Problem 3.
+
+```{r Answer 3}
+#Insert the code to answer the problem here.
+
+paste(W, X, Y, Z, NA, collapse = NULL)
+str_c(W, X, Y, Z, NA, collapse = NULL)
+```
+
+### Section 4.
+
+We can use the `str_sub` function to extract parts of strings. Suppose I wanted to extract the last 8 letters of my name.
+
+```{r Intro 4}
+myName <- "Vicki Hertzberg"
+Length <- str_length(myName)
+last7letters <- str_sub(myName, Length-7, Length)
+last7letters
+```
+
+#### Problem 4. 
+Suppose Melinda Higgins wants to extract the last *10* letters of her full name.
+
+```{r Problem 4}
+herName <- "Melinda Higgins"
+```
+
+Write the code below to extract the last 6 letters of her name.
+
+#### Answer to Problem 4.
+
+```{r Answer 4}
+#Insert the code to answer the problem here.
+Length <- str_length(herName)
+last10letters <- str_sub(herName, Length-9, Length)
+last10letters
+
+# or if you did the last 6... sorry for the confusion
+Length <- str_length(herName)
+last6letters <- str_sub(herName, Length-5, Length)
+last6letters
+```
+
+### Section 5
+
+Suppose I have a string and I want to split it into unique words based on the occurrence of a separator, as follows:
+
+```{r Intro 5}
+myString <- "The_quick_brown_fox_jumped_over_the_lazy_dog"
+
+#the separator is the character "_"
+
+mySeparatedString <- str_split(myString, "_")
+mySeparatedString
+```
+
+If you look in your environment you will see that `mySeparatedString` is a List of 1.
+
+#### Problem 5.
+
+I want to separate the following string into separate words:
+
+```{r Problem 5}
+myNewString <- "Able-Was-I-Ere-I-Saw-Elba"
+```
+
+Split this new string into separate words:
+
+#### Answer to Problem 5.
+
+```{r Answer 5}
+#Insert the code to answer the problem here.
+mySeparatedString <- str_split(myNewString, "-")
+mySeparatedString
+```
+
+### Section 6.
+
+On another occasion, I need the same string split so that the last word comes off, and the rest remains intact. I can achieve that in the following way:
+
+```{r Intro 6}
+myString <- "The_quick_brown_fox_jumped_over_the_lazy_dog"
+myNewSplitSpring <- str_split(myString, "_", n=2)
+myNewSplitSpring
+```
+
+#### Problem 6. 
+
+Suppose we wanted to split off the first "word" from `myNewString`. Again, we have 
+
+```{r Problem 6}
+myNewString <- "Now_is_the_time_for_all_good_men_to_come_to_the_aid_of_their_country"
+```
+
+Split off the first word but leave the rest intact.
+
+#### Answer 6.
+
+```{r Answer 6}
+#Insert the code to answer the problem here.
+myNewSplitSpring <- str_split(myNewString, "_", n=2)
+myNewSplitSpring
+```
+
+### Section 7.
+
+With the `stringi` package there is functionality to count the number of words in a string.
+
+```{r Intro 7}
+newString <- "The quick brown fox jumps over the lazy dog."
+stri_count_words(newString)
+```
+
+#### Problem 7.
+
+```{r}
+yourNewString <- "Whether you think you can, or you think you can’t – you’re right,"
+```
+
+Use the `stri_count_words` function as above to count the number of distinct words in `yourNewString`.
+
+#### Answer 7.
+
+```{r Answer 7}
+#Insert the code to answer the problem here.
+stri_count_words(yourNewString)
+```
+
+### Section 8.
+
+Let's say you have a string listing famous mathematicians and you want to know if there are any duplicates in the list. You would do this as follows:
+
+```{r Intro 8}
+mathematicians <- c("Goedel", "Euler", "Gauss", "Hilbert", "Goedel", "Fermat", "LaGrange", "Gauss")
+
+mathematicians[stri_duplicated(mathematicians)]
+```
+
+#### Problem 8.
+
+Suppose you have string listing famous nurses and you want to find the duplicates. Here is the list:
+
+```{r Problem 8}
+nurses <-c("Nightingale", "Barton", "Dix", "Sanger", "Barton", "Woodruff", "Lincoln", "Dix", "Peplau")
+```
+
+#### Answer 8.
+
+```{r Answer 8}
+#Insert your code to address the problem here
+nurses[stri_duplicated(nurses)]
+```
+
+### Section 9.
+
+The `LETTERS` object is a vector of length 26, consisting of all of the capital letters. Suppose we wanted to use this object to create the string`A-B_C-D_E-F_G-H_I-J_K-L_M-N_O-P_Q-R_S-T_U-V_W-X_Y-Z_`. To achieve this, we  use the following commands:
+
+```{r Intro 9}
+stri_join(LETTERS, separators = c("-","_"), collapse = "")
+```
+
+#### Problem 9.
+
+Suppose we create the object `DIGITS` as follows:
+
+```{r Problem 9}
+DIGITS <- c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+```
+
+How can we form the string `0_1-2_3-4_5-6_7-8_9-'?
+
+#### Answer 9.
+
+```{r Answer 9}
+#Insert the code to solve the problem here.
+stri_join(DIGITS, separators = c("_","-"), collapse = "")
+```
+
+### Section 10
+
+Suppose we want to replace `statistician` with `mathematician` and `average` with `median` in the following pun:
+
+```{r Intro 10}
+pun <- "A statistician can have his head in an oven and his feet in ice, and he will say that on the average he feels fine"
+
+pun
+
+punModified <- 
+  stri_replace_all_fixed(pun, 
+                         c("statistician", "average"), 
+                         c("mathematician", "median"), 
+                         vectorize_all = FALSE)
+
+punModified
+```
+
+#### Problem 10
+
+Using the original pun, replace `his` with `her` and ` he ` with ` she `:
+
+```{r Problem 10}
+pun
+```
+
+#### Answer 10 
+
+Note that the word `head` also starts with `he` but we don't want to substitute `she` into there and end up with `shead`.
+
+HINT: Pay attention to spaces!!
+
+```{r Answer 10}
+#Insert the code to answer the problem here.
+punModified <- 
+  stri_replace_all_fixed(pun, 
+                         c("his", " he "), 
+                         c("her", " she "), 
+                         vectorize_all = FALSE)
+
+punModified
+```
+
+## BONUS 2: Split text into separate columns
+
+The builtin `mtcars` dataset has row names for each car's make and model. Here is an example of the top 6 rows:
+
+```{r}
+head(mtcars)
+```
+
+Notice the row labels in the first column. Let's add these text "strings" to the dataset:
+
+```{r}
+library(dplyr)
+makemodel <- row.names(mtcars)
+mtcars2 <- mtcars %>%
+  mutate(makemodel = makemodel)
+
+# remove row names
+row.names(mtcars2) <- NULL
+
+# view top 6 rows again
+head(mtcars2)
+```
+
+Suppose we now want to break up the make and model into separate columns using the space as our column divider. We can use the `separate()` function from `tidyr` package to do this. Note: given the full list of makes and models some have 2 spaces so you'll end up with 3 columns that we'll call "make", "model" and "type" which is why `into = c("make", "model", "type")` in the code below. This defines the new columns we are adding to the dataset.
+
+```{r bonus2}
+library(tidyr)
+
+df <-
+  tidyr::separate(
+    data = mtcars2,
+    col = makemodel,
+    sep = " ",
+    into = c("make", "model", "type"),
+    remove = FALSE
+  )
+
+df %>% knitr::kable()
+```
+
+You try it. Here is a small hypothetical dataset from a lab that created custom IDs to track the subject, visit number and year by combining them into one long "string" (text field) separated by underscores "_". This is the variable `idlong` in the `labdata` dataset.
+
+Using the code example above, see if you can (1) separate the long string `idlong` into 3 new columns added to the `labdata` dataset individually for "ID", "visit" and "year".
+
+```{r}
+# create hypothetical dataset
+idlong <- c(
+  "001_v1_2020",
+  "001_v2_2021",
+  "002_v1_2020",
+  "002_v2_2021",
+  "003_v1_2020",
+  "003_v2_2021",
+  "004_v1_2021",
+  "004_v2_2022",
+  "005_v1_2021",
+  "005_v2_2022"
+)
+
+values <- c(34, 31, 28, 26, 34, 34, 27, 28, 30, 25)
+
+labdata <- data.frame(idlong, values)
+
+labdata
+```
+
+## BONUS 2 ANSWER
+
+```{r bonus2code}
+# PUT CODE FOR BONUS 2 HERE
+df <-
+  tidyr::separate(
+    data = labdata,
+    col = idlong,
+    sep = "_",
+    into = c("ID", "visit", "year"),
+    remove = FALSE
+  )
+
+df %>% knitr::kable()
+```
+

@@ -1,0 +1,330 @@
+---
+title: "NRSG 741 - Homework 2 - Exploratory Data Analysis"
+author: "YOUR NAME HERE"
+date: "ADD THE DATE"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## INSTRUCTIONS
+
+* Use this Rmarkdown file `N741Spring2022_Homework02_template.Rmd` to get started.
+* SAVE this file under a NEW filename like `N741Spring2022_Homework02_myname.Rmd`
+* Change the author to YOUR NAME
+* Change the date
+* Note: This Rmarkdown file has one R code chunk at the top that reads in the dataset and loads the R packages you will need.
+* After each question below, insert an R code chunk to enter the R code needed to answer that question. Do this for each question.
+* Outside of the R code chunk, type in any text needed to provide explanation or answer the questions further.
+
+Note: As you Knit your document, if you are getting errors, just comment out any code that is not fully running yet by adding a `#` at the beginning of that line of code. Fix the errors and then try knitting again.
+
+**Note: All you need to do is correctly fill in the blanks `___` in the code chunks below.**
+
+## Homework 02 Dataset
+
+For this Homework you will be working with the abalone dataset from the UCI (University of California - Irvine) Machine Learning data repository website: [https://archive.ics.uci.edu/ml/datasets/abalone](https://archive.ics.uci.edu/ml/datasets/abalone).
+
+Take a look at the website to read up on the source of data and description of the variables and data in the file.
+
+**NOTICE:** In the code below the data are actually being read directly off the internet from the UCI repository.
+
+```{r setup, include=FALSE}
+# set up chunk output options
+# set to FALSE to clean up final output
+# leave TRUE to help with debugging initially
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+# IGNORE THESE 2 LINES
+#knitr::opts_chunk$set(error = TRUE)
+#knitr::opts_chunk$set(eval = FALSE)
+
+# Get data
+# learn more at https://archive.ics.uci.edu/ml/datasets/abalone
+
+# Load the abalone dataset using read_csv() function
+# from readr package
+library(readr)
+abalone <- 
+  readr::read_csv(file = "https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data",
+                  col_names = FALSE)
+
+# put in the variables names
+# see details at https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.names
+names(abalone) <- c("sex","length",
+                    "diameter","height",
+                    "wholeWeight","shuckedWeight",
+                    "visceraWeight","shellWeight","rings")
+
+# Load dplyr and ggplot2 packages
+library(dplyr)
+library(ggplot2)
+```
+
+## Goal of Homework 2
+
+This homework is meant to further your `dplyr` and `ggplot2` skills and give you a chance to do some exploratory data analysis (EDA). 
+
+## Modify R code chunks
+
+In each of the R code chunks below, "scaffolding" is provided. Everywhere you see 3 underscores ___ , you will need to fill in the appropriate code, variable name, function name, etc.
+
+Use tools within the `dplyr` package as much as possible to answer the following questions.
+
+##### **Question 1:** What kind of R object is the `abalone` dataset?
+
+```{r q1}
+# insert R code here to answer question 1
+# HINT: The name of the dataset is abalone
+
+class(abalone)
+```
+
+_TYPE ANSWER TO QUESTION 1 HERE_
+
+ANSWER: Since this `abalone` datafile was read in using the `readr` package which is part of the tidyverse, the `abalone` dataset is a `data.frame` but more specifically it is a `"spec_tbl_df" "tbl_df"      "tbl"         "data.frame"`.
+
+##### **Question 2:** How many observations are in the `abalone` dataset?
+
+```{r q2}
+# HINT: there are multiple ways to answer this - pick one
+dim(abalone)
+str(abalone)
+glimpse(abalone)
+nrow(abalone)
+```
+
+_TYPE ANSWER TO QUESTION 2 HERE_
+
+ANSWER: 4177 observations
+
+##### **Question 3:** For diameter, how many abalones have diameters less than 0.5mm?
+
+```{r q3, eval=FALSE}
+# the variable name is diameter
+abalone %>%
+ filter(diameter < 0.5) %>%
+ nrow()
+```
+
+_TYPE ANSWER TO QUESTION 3 HERE_
+
+ANSWER: Out of the 4177 abalones, there were 3388 with diameter measurements < 0.5mm.
+
+##### **Question 4:** How many abalones have shucked weights larger than their whole weight? 
+
+NOTE: There should be NO measurements where the shucked weight is > whole weight. If there are some these are probably data entry errors in this dataset.
+
+```{r q4}
+# HINT: Use a logical expression inside a filter step
+# HINT: Check the spelling and case for the 
+# variable names for shucked weight and whole weight
+abalone %>%
+ filter(shuckedWeight > wholeWeight) %>%
+ nrow()
+```
+
+_TYPE ANSWER TO QUESTION 4 HERE_
+
+ANSWER: There are 4 abalones with shucked weight higher than their whole weight, which is probably due to a data entry error since the whole weight include shucked weight. So, the whole weights should always be more than their shucked weights.
+
+---
+
+Create a subset containing only infants `sex == "I"`. Call this new dataset `infants`
+
+```{r infants}
+# HINT: Put the logical statement inside the filter() function
+# Dont forget to use the assign operator <- to create the infants object
+infants <- abalone %>%
+  filter(sex == "I")
+```
+
+##### **Question 5:** How old are the abalones?
+
+Based on the documentation provided at [https://archive.ics.uci.edu/ml/datasets/abalone](https://archive.ics.uci.edu/ml/datasets/abalone), the age of the abalones can be computed based on the number of rings where age (in years) = rings + 1.5.
+
+Using the code scaffolding (___) fill in the blacks below to compute and add a variable called `age` to the `abalone` dataset.
+
+Then get the summary statistics for `age`.
+
+```{r q5}
+# add age variable to abalone dataset
+abalone <- abalone %>%
+  mutate(age = rings + 1.5)
+
+# select age and get summary stats
+abalone %>%
+  select(age) %>%
+  summary()
+```
+
+What is the average age of the abalones?
+
+_TYPE ANSWER TO QUESTION 5 HERE_
+
+ANSWER: The average age of the abalones is 11.43 years old.
+
+---
+
+Show off your `dplyr` skills with `group_by()`.
+
+##### **Question 6:** What is the average whole weight for each abalone sex (get whole weight means for females "F", males "M" and infants "I" separately)?
+
+```{r q6}
+# Hint: put the variables used in the select statement
+# wholeWeight and sex.
+# Remember to put
+# in a name for the output of the mean() function
+# something like meanwt
+abalone %>%
+  select(sex, wholeWeight) %>%
+  group_by(sex) %>%
+  summarise(meanwt = mean(wholeWeight, na.rm=TRUE))
+```
+
+_TYPE ANSWER TO QUESTION 6 HERE_
+
+ANSWER: Table of average whole weights of abalones by sex.
+
+```{r}
+abalone %>%
+  select(sex, wholeWeight) %>%
+  group_by(sex) %>%
+  summarise(meanwt = mean(wholeWeight, na.rm=TRUE)) %>%
+  knitr::kable(caption = "Average Whole Weights by Sex")
+```
+
+
+##### **Question 7:** Get the means for the abalone length and height by sex?
+
+Learn more about the `dplyr::summarise_all()` function at [https://dplyr.tidyverse.org/reference/summarise_all.html](https://dplyr.tidyverse.org/reference/summarise_all.html) - scroll down and look through the examples provided.
+
+```{r q7}
+# Hint: put variable names in the select statement
+# put the function name for the mean in the 
+# summarise_all() function
+abalone %>%
+  select(sex, length, height) %>%
+  group_by(sex) %>%
+  summarise_all(mean, na.rm=TRUE)
+```
+
+_TYPE ANSWER TO QUESTION 7 HERE_
+
+ANSWER: Table of average whole weights of abalones by sex.
+
+```{r}
+abalone %>%
+  select(sex, length, height) %>%
+  group_by(sex) %>%
+  summarise_all(mean, na.rm=TRUE) %>%
+  knitr::kable(caption = "Average Lengths and Heights by Sex")
+```
+
+
+##### BONUS - Make a TABLE using the `arsenal` package.
+
+Here is some example code showing the summary statistics by `sex` (M, F, I) for `length`, `diameter`, and `height` for younger abalones with `age < 12`. Use the `arsenal` package and the `tableby()` function. First create a dataset with the smaller abalones (`age < 12`) - then use that as the dataset for the `tableby()` function.
+
+```{r results = "asis"}
+library(arsenal)
+abalone_young <- abalone %>%
+  filter(age < 12)
+  
+t1 <-
+  tableby(sex ~ length +
+            diameter +
+            height,
+          data = abalone_young)
+
+summary(t1)
+```
+
+Using the code above as a guide, now create a table showing the summary statistics by `sex` (M, F, I) for `shuckedWeight`, `visceraWeight`, and `shellWeight` for older abalones with `age >= 12`.
+
+```{r results = "asis"}
+abalone_older <- abalone %>%
+  filter(age >= 12)
+  
+t2 <-
+  tableby(sex ~ shuckedWeight +
+            visceraWeight +
+            shellWeight,
+          data = abalone_older)
+
+summary(t2)
+```
+
+----
+
+## Test your graphing skills using `ggplot2`
+
+Using the `abalone` dataset, create the following graphics/figures using `ggplot()` and associated `geom_xxx()` functions.
+
+##### **Question 8:** Create a histogram of abalone whole weight
+
+BONUS: Outline the histogram bars with a black line and fill the histogram bars with a green color
+
+HINT: See example `ggplot2` code for creating histograms at:
+
+* [http://www.cookbook-r.com/Graphs/Plotting_distributions_(ggplot2)/](http://www.cookbook-r.com/Graphs/Plotting_distributions_(ggplot2)/)
+* [https://www.r-graph-gallery.com/histogram.html](https://www.r-graph-gallery.com/histogram.html)
+
+```{r q8}
+# Hint: the first option in the ggplot() function 
+# is the name of the dataset
+# the variable name is put inside aes()
+ggplot(abalone, aes(wholeWeight)) +
+  geom_histogram()
+
+# BONUS:
+ggplot(abalone, aes(wholeWeight)) +
+  geom_histogram(color = "black", fill = "green")
+```
+
+_What do you notice about the distribution (any outliers or skewness)?_
+
+_TYPE ANSWER TO QUESTION 8 HERE_
+
+ANSWER: The distribution is right skewed. There may be a few outliers with whole weights > 2.5 or so.
+
+
+##### **Question 9:** Create side-by-side boxplots of the number of rings by sex and color the bars by sex
+
+_HINT use `geom_boxplot` with `fill=sex`_ 
+
+See example `ggplot2` codes for boxplots at:
+
+* [http://www.cookbook-r.com/Graphs/Plotting_distributions_(ggplot2)/](http://www.cookbook-r.com/Graphs/Plotting_distributions_(ggplot2)/) - scroll down to see boxplot examples
+* [https://www.r-graph-gallery.com/boxplot.html](https://www.r-graph-gallery.com/boxplot.html)
+
+```{r q9}
+ggplot(abalone, aes(x=sex, y=rings, fill=sex)) + 
+  geom_boxplot()
+```
+
+##### **Question 10:** Create a scatterplot of the whole weight on the X axis and shucked weight on the Y axis and color the points by sex
+
+See example `ggplot2` codes for scatterplots at:
+
+* [http://www.cookbook-r.com/Graphs/Scatterplots_(ggplot2)/](http://www.cookbook-r.com/Graphs/Scatterplots_(ggplot2)/)
+* [https://www.r-graph-gallery.com/scatterplot.html](https://www.r-graph-gallery.com/scatterplot.html)
+
+```{r q10}
+ggplot(abalone, aes(x=wholeWeight, y=shuckedWeight, color=sex)) + 
+  geom_point() + 
+  geom_abline(intercept = 0, slope = 1)
+```
+
+Can you see which abalones have shucked weights > whole weights which should not happen? Look at the y=x reference line. What sex are the abalones with the incorrect weights?
+
+_TYPE ANSWER TO QUESTION 10 HERE_
+
+ANSWER: The 4 outliers we saw above that had shucked weights > whole weights which shouldn't happen were all for the infants which are smaller overall.
+
+## Final Instructions
+
+* KNIT this RMD file to PDF (or to HTML or DOC and save as PDF)
+* Upload your PDF document to Canvas
