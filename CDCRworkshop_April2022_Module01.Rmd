@@ -211,9 +211,11 @@ knitr::include_graphics("module01_newproject04.png")
 
 ---
 
-# Go to https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/
+# Get files for the Workshop
 
-1. Download module01_Rscript.R and put it into the new folder on your computer, _e.g._ `C:\Rworkshop`.
+1. Go to https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/
+
+2. Download module01_Rscript.R and put it into the new folder on your computer, _e.g._ `C:\Rworkshop`.
 
 ---
 
