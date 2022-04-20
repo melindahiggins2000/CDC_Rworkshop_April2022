@@ -52,13 +52,18 @@ class: center, top
 
 This workshop will cover:
 
-* An introduction to R and RStudio – getting familiar with the R language and working in the RStudio IDE (integrated development environment);
-* Learning about data structures, getting into and out of R, cleaning data, intro to data wrangling;
-* Performing basic statistical analyses and models plus formatting output (statistics and tables) from R; 
-* Visualizing data and models with ggplot2; 
-* Brief intro to making simple choropleth maps; and
-* Getting started writing reports/dynamic documentation (basic principle of reproducible research) using RMarkdown and knitr;
-* [time permitting] data merging including joins and restructuring rows and columns (long to wide datasets and visa-versa); introduction to other reporting and communication formats such as dashboard, websites, book-format templates and more; introduction to statistical models and analyses using R (such as linear and logistic regression); or other topics as requested by attendees.
+* An introduction to R and RStudio
+* Learning about R Objects and data structures
+* Getting data into and out of R
+* Data Wrangling
+* Data Visualization _(e.g. `ggplot2`)_
+* Basic statistical analyses and models
+* Brief intro to simple choropleth maps
+* Brief Intro to RMarkdown
+* _[time permitting] _
+    - _data joins and restructuring_
+    - _introduction to linear and logistic regression_
+    - _other topics as requested by attendees_
 
 ---
 
@@ -211,15 +216,57 @@ knitr::include_graphics("module01_newproject04.png")
 
 ---
 
+# Your new `Rworkshop` project
+
+
+```{r out.width = '=80%', echo=FALSE}
+knitr::include_graphics("module01_Rworkshop01.png")
+```
+
+---
+
 # Get files for the Workshop
 
 1. Go to https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/
 
-2. Download module01_Rscript.R and put it into the new folder on your computer, _e.g._ `C:\Rworkshop`.
+2. Download `module01_Rscript.R` and put it into the new folder on your computer, _e.g._ `C:\Rworkshop`.
+
+```{r out.width = '=80%', echo=FALSE}
+knitr::include_graphics("module01_getfiles01.png")
+```
 
 ---
 
+# Files in your `Rworkshop` folder on your computer
 
+
+```{r out.width = '=80%', echo=FALSE}
+knitr::include_graphics("module01_Rworkshop02.png")
+```
+---
+
+# Files in your `Rworkshop` folder/RStudio project
+
+```{r out.width = '=80%', echo=FALSE}
+knitr::include_graphics("module01_Rworkshop03.png")
+```
+
+.footnote[Click on `module01_Rscript.R` to open it.]
+
+---
+
+```{r out.width = '=100%', echo=FALSE}
+knitr::include_graphics("module01_Rscript01.png")
+```
+
+.footnote[Type code at command line or run one line at a time from script window.]
+---
+
+# Basic commands done in Console
+
+```{r out.width = '=80%', echo=FALSE}
+knitr::include_graphics("module01_console01.png")
+```
 
 ---
 
@@ -230,7 +277,7 @@ pi
 seq(from=1, to=10, by=0.5)
 ```
 
-`r chunk_reveal(chunk_name = "console1", title = "Working in the console")`
+`r chunk_reveal(chunk_name = "console1", title = "Code lines run in the console or from script window")`
 
 ---
 
@@ -267,6 +314,22 @@ result
 
 ---
 
+class: inverse, middle, left
+
+# Your Turn
+
+### 1. Start RStudio - Open "module01_Rscript.R"
+### 2. Highlight Run Code for EXERCISE 01
+
+---
+
+# How to "run" code in an R script
+
+```{r out.width = '=80%', echo=FALSE}
+knitr::include_graphics("module01_runExample01.png")
+```
+---
+
 ```{r console2, include = FALSE}
 # save sequence of numbers in object x
 x <- seq(from=1, to=10, by=0.5)
@@ -282,14 +345,6 @@ plot(x,y)
 ```
 
 `r chunk_reveal(chunk_name = "console2", title = "Create Objects and Use Them")`
-
----
-class: inverse, middle, left
-
-# Your Turn
-
-### 1. Start RStudio - Open "module01_Rscript.R"
-### 2. Highlight Run Code for EXERCISE 01
 
 ---
 
@@ -347,7 +402,13 @@ class: inverse, middle, left
 
 ### 1. Open "module01_Rscript.R"
 ### 2. Highlight Run Code for EXERCISE 02
-### 3. How did you make plot for tangent of x?
+### 3. Write Code to make plot for tangent of x
+### 4. Write Code to make plot of log of x with log y
+
+.center[ZOOM BREAKOUT, 5 MIN]
 
 ---
 
+class: inverse, middle, center
+
+# BREAK TILL 10:30 AM

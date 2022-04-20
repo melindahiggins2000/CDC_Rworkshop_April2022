@@ -40,13 +40,18 @@ class: center, top
 
 This workshop will cover:
 
-* An introduction to R and RStudio – getting familiar with the R language and working in the RStudio IDE (integrated development environment);
-* Learning about data structures, getting into and out of R, cleaning data, intro to data wrangling;
-* Performing basic statistical analyses and models plus formatting output (statistics and tables) from R; 
-* Visualizing data and models with ggplot2; 
-* Brief intro to making simple choropleth maps; and
-* Getting started writing reports/dynamic documentation (basic principle of reproducible research) using RMarkdown and knitr;
-* [time permitting] data merging including joins and restructuring rows and columns (long to wide datasets and visa-versa); introduction to other reporting and communication formats such as dashboard, websites, book-format templates and more; introduction to statistical models and analyses using R (such as linear and logistic regression); or other topics as requested by attendees.
+* An introduction to R and RStudio
+* Learning about R Objects and data structures
+* Getting data into and out of R
+* Data Wrangling
+* Data Visualization _(e.g. `ggplot2`)_
+* Basic statistical analyses and models
+* Brief intro to simple choropleth maps
+* Brief Intro to RMarkdown
+* _[time permitting] _
+    - _data joins and restructuring_
+    - _introduction to linear and logistic regression_
+    - _other topics as requested by attendees_
 
 ---
 
@@ -187,15 +192,45 @@ Type in folder name and choose parent directory
 
 ---
 
+# Your new `Rworkshop` project
+
+
+&lt;img src="module01_Rworkshop01.png" width="=80%" /&gt;
+
+---
+
 # Get files for the Workshop
 
 1. Go to https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/
 
-2. Download module01_Rscript.R and put it into the new folder on your computer, _e.g._ `C:\Rworkshop`.
+2. Download `module01_Rscript.R` and put it into the new folder on your computer, _e.g._ `C:\Rworkshop`.
+
+&lt;img src="module01_getfiles01.png" width="=80%" /&gt;
 
 ---
 
+# Files in your `Rworkshop` folder on your computer
 
+
+&lt;img src="module01_Rworkshop02.png" width="=80%" /&gt;
+---
+
+# Files in your `Rworkshop` folder/RStudio project
+
+&lt;img src="module01_Rworkshop03.png" width="=80%" /&gt;
+
+.footnote[Click on `module01_Rscript.R` to open it.]
+
+---
+
+&lt;img src="module01_Rscript01.png" width="=100%" /&gt;
+
+.footnote[Type code at command line or run one line at a time from script window.]
+---
+
+# Basic commands done in Console
+
+&lt;img src="module01_console01.png" width="=80%" /&gt;
 
 ---
 
@@ -203,7 +238,7 @@ Type in folder name and choose parent directory
 
 count: false
  
-Working in the console
+Code lines run in the console or from script window
 .panel1-console1-auto[
 
 ```r
@@ -221,7 +256,7 @@ Working in the console
 ---
 count: false
  
-Working in the console
+Code lines run in the console or from script window
 .panel1-console1-auto[
 
 ```r
@@ -244,7 +279,7 @@ Working in the console
 ---
 count: false
  
-Working in the console
+Code lines run in the console or from script window
 .panel1-console1-auto[
 
 ```r
@@ -272,7 +307,7 @@ sqrt(25)
 ---
 count: false
  
-Working in the console
+Code lines run in the console or from script window
 .panel1-console1-auto[
 
 ```r
@@ -298,8 +333,8 @@ pi
 ```
 
 ```
- [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
-[16]  8.5  9.0  9.5 10.0
+ [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0
+[12]  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0
 ```
 ]
 
@@ -373,6 +408,20 @@ result
 
 ---
 
+class: inverse, middle, left
+
+# Your Turn
+
+### 1. Start RStudio - Open "module01_Rscript.R"
+### 2. Highlight Run Code for EXERCISE 01
+
+---
+
+# How to "run" code in an R script
+
+&lt;img src="module01_runExample01.png" width="=80%" /&gt;
+---
+
 
 
 count: false
@@ -408,8 +457,8 @@ x &lt;- seq(from=1, to=10, by=0.5)
 .panel2-console2-auto[
 
 ```
- [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
-[16]  8.5  9.0  9.5 10.0
+ [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0
+[12]  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0
 ```
 ]
 
@@ -434,8 +483,8 @@ x
 .panel2-console2-auto[
 
 ```
- [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
-[16]  8.5  9.0  9.5 10.0
+ [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0
+[12]  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0
 ```
 ]
 
@@ -463,8 +512,8 @@ y &lt;- x*x
 .panel2-console2-auto[
 
 ```
- [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
-[16]  8.5  9.0  9.5 10.0
+ [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0
+[12]  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0
 ```
 
 ![](CDCRworkshop_April2022_Module01_files/figure-html/console2_auto_04_output-1.png)&lt;!-- --&gt;
@@ -498,14 +547,6 @@ y &lt;- x*x
 &lt;/style&gt;
 
 
-
----
-class: inverse, middle, left
-
-# Your Turn
-
-### 1. Start RStudio - Open "module01_Rscript.R"
-### 2. Highlight Run Code for EXERCISE 01
 
 ---
 
@@ -545,8 +586,8 @@ seq(from=1, to=10, by=0.5)
 ```
 
 ```
- [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
-[16]  8.5  9.0  9.5 10.0
+ [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0
+[12]  6.5  7.0  7.5  8.0  8.5  9.0  9.5 10.0
 ```
 
 Notice that we used equals `=` inside the `()` to assign _values_ to the _arguments_ for the `seq()` function.
@@ -565,10 +606,16 @@ class: inverse, middle, left
 
 ### 1. Open "module01_Rscript.R"
 ### 2. Highlight Run Code for EXERCISE 02
-### 3. How did you make plot for tangent of x?
+### 3. Write Code to make plot for tangent of x
+### 4. Write Code to make plot of log of x with log y
+
+.center[ZOOM BREAKOUT, 5 MIN]
 
 ---
 
+class: inverse, middle, center
+
+# BREAK TILL 10:30 AM
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
