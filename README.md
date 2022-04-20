@@ -33,16 +33,16 @@ This workshop will cover:
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:15 | module 1 [slides](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/CDCRworkshop_April2022_Module01.html#1) [Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module01_Rscript.R)         |
-| 10:15 - 10:30 | break            |
-| 10:30 - 12:00 | module 2         |
-| 12:00 - 13:00 | LUNCH            |
-| 13:00 - 14:15 | module 3         |
-| 14:15 - 14:25 | short break      |
-| 14:25 - 15:30 | module 4         |
-| 15:30 - 15:40 | short break      |
-| 15:40 - 17:00 | module 5         |
-| 17:00 - 17:30 | post workshop Q&A and one-on-one help |
+| 09:00 - 10:15 | Module 1 [[Slides]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/CDCRworkshop_April2022_Module01.html#1) [[Rscript]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module01_Rscript.R)         |
+| 10:15 - 10:30 | _Break_            |
+| 10:30 - 12:00 | Module 2         |
+| 12:00 - 13:00 | **LUNCH**            |
+| 13:00 - 14:15 | Module 3         |
+| 14:15 - 14:25 | _Break_      |
+| 14:25 - 15:30 | Module 4         |
+| 15:30 - 15:40 | _Break_      |
+| 15:40 - 17:00 | Module 5         |
+| 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |
 
 
 # DAY 2: April 22, 2022
@@ -56,15 +56,16 @@ This workshop will cover:
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:15 | module 6         |
-| 10:15 - 10:30 | break            |
-| 10:30 - 12:00 | module 7         |
-| 12:00 - 13:00 | LUNCH            |
-| 13:00 - 14:15 | module 8         |
-| 14:15 - 14:25 | short break      |
-| 14:25 - 15:30 | module 9         |
-| 15:30 - 15:40 | short break      |
-| 15:40 - 17:00 | module 10        |
-| 17:00 - 17:30 | post workshop Q&A and one-on-one help |
+| 09:00 - 10:15 | Module 6         |
+| 10:15 - 10:30 | _Break_            |
+| 10:30 - 12:00 | Module 7         |
+| 12:00 - 13:00 | **LUNCH**            |
+| 13:00 - 14:15 | Module 8         |
+| 14:15 - 14:25 | _Break_      |
+| 14:25 - 15:30 | Module 9         |
+| 15:30 - 15:40 | _Break_      |
+| 15:40 - 17:00 | Module 10         |
+| 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |
+
 
 
