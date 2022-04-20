@@ -33,7 +33,7 @@ This workshop will cover:
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:15 | module 1 [slides]() [Rscript]()         |
+| 09:00 - 10:15 | module 1 [slides](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/CDCRworkshop_April2022_Module01.html#1) [Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module01_Rscript.R)         |
 | 10:15 - 10:30 | break            |
 | 10:30 - 12:00 | module 2         |
 | 12:00 - 13:00 | LUNCH            |
