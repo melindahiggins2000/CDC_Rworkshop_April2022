@@ -256,7 +256,7 @@ knitr::include_graphics("module01_Rworkshop03.png")
 ---
 
 ```{r out.width = '=100%', echo=FALSE}
-knitr::include_graphics("module01_Rscript01.png")
+knitr::include_graphics("module01_Rscript01.PNG")
 ```
 
 .footnote[Type code at command line or run one line at a time from script window.]
