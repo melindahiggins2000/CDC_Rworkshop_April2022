@@ -42,6 +42,14 @@ xaringanExtra::use_panelset()
 xaringanExtra::use_tile_view()
 ```
 
+# Why Learn R?
+
+* https://www.tiobe.com/tiobe-index/r/
+* https://www.tiobe.com/tiobe-index/
+* https://r4stats.com/articles/popularity/
+
+---
+
 # R vs Other Stats Software
 
 .pull-left[
