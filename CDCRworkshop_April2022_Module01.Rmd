@@ -89,6 +89,30 @@ This workshop will cover:
 
 ---
 
+# A few quick poll questions:
+
+[1] Do you have any experience with R? [pick 1 response]
+
+* Go to [https://PollEv.com/multiple_choice_polls/KOKqJrxm4BcuTeTVbWYgh/respond](https://PollEv.com/multiple_choice_polls/KOKqJrxm4BcuTeTVbWYgh/respond)
+
+---
+
+# A few quick poll questions:
+
+[2] What do you want to learn during this R Workshop? [free text, can enter multiple responses]
+
+* Go to [https://PollEv.com/free_text_polls/sNkrLYKXk5HEFEampZSGp/respond](https://PollEv.com/free_text_polls/sNkrLYKXk5HEFEampZSGp/respond)
+
+---
+
+# A few quick poll questions:
+
+[3] What intimidates you about learning R? [free text, can enter multiple responses]
+
+* Go to [https://PollEv.com/free_text_polls/6upJRZaEzcRhYmIGjNwRL/respond](https://PollEv.com/free_text_polls/6upJRZaEzcRhYmIGjNwRL/respond)
+
+---
+
 # R + RStudio
 
 .pull-left[
