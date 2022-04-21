@@ -360,6 +360,48 @@ penguins %>%
 
 ---
 
+# Understanding the programming workflow with `%>%`
+
+Another fun built-in dataset is `mtcars`. Here is a quick look at that dataset. Watch the programming workflow on next 2 slides.
+
+```{r}
+head(mtcars, 10)
+```
+
+---
+
+```{r my_mtcars, include = FALSE}
+mtcars %>%
+  select(cyl, mpg, hp) %>%
+  arrange(hp) %>%
+  summarise(meanmpg = mean(mpg),
+            meanhp = mean(hp)) %>%
+  knitr::kable(
+    col.names = c("MPG","HP"),
+    caption = "Means of MPG and HP"
+    )
+```
+
+`r chunk_reveal("my_mtcars")`
+
+---
+
+```{r my_mtcars2, include = FALSE}
+mtcars %>%
+  select(cyl, mpg, hp) %>%
+  arrange(hp) %>%
+  group_by(cyl) %>%
+  summarise(meanmpg = mean(mpg),
+            meanhp = mean(hp)) %>%
+  knitr::kable(
+    col.names = c("CYL","MPG","HP"),
+    caption = "Means of MPG and HP by CYL")
+```
+
+`r chunk_reveal("my_mtcars2")`
+
+---
+
 # Use `knitr::kable()` for pretty output table
 
 Use `knitr::kable()` on any table, data.frame, matrix or tibble to get pretty output.
