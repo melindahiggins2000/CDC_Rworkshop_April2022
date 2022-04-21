@@ -68,5 +68,17 @@ This workshop will cover:
 | 15:40 - 17:00 | Module 10 [[Slides]] [[Rscript]]   |
 | 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |
 
+## Places to get help, more info...
+
+* [RStudio Education](https://education.rstudio.com/)
+* [Quick-R](https://www.statmethods.net/)
+* [Datacamp](https://www.datacamp.com/)
+* [R for SAS Users - My Datacamp Course](https://www.datacamp.com/courses/r-for-sas-users)
+* [Coursera](https://www.coursera.org/)
+* [Reproducible Templates for Analysis and Dissemination - My Coursera Course](https://www.coursera.org/learn/reproducible-templates-analysis)
+* [Emory N741](https://melindahiggins2000.github.io/N741bigdata/)
+* [Emory N736](https://melindahiggins2000.github.io/N736/)
+* [Book: Statistical Inference via Data Science](https://moderndive.com/)
+* [Book: The Epidemiologist R Handbook](https://epirhandbook.com/en/index.html)
 
 
