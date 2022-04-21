@@ -39,9 +39,9 @@ This workshop will cover:
 | 12:00 - 13:00 | **LUNCH**            |
 | 13:00 - 14:15 | Module 3 [[Slides]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/CDCRworkshop_April2022_Module03.html#1) [[Rscript]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module03_Rscript.R)         |
 | 14:15 - 14:25 | _Break_      |
-| 14:25 - 15:30 | Module 4 [[Slides]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/CDCRworkshop_April2022_Module01.html#1) [[Rscript]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module01_Rscript.R)         |
+| 14:25 - 15:30 | Module 4 [[Slides]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/CDCRworkshop_April2022_Module04.html#1) [[Rscript]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module04_Rscript.R)         |
 | 15:30 - 15:40 | _Break_      |
-| 15:40 - 17:00 | Module 5 [[Slides]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/CDCRworkshop_April2022_Module01.html#1) [[Rscript]](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module01_Rscript.R)         |
+| 15:40 - 17:00 | Module 5 ... continue Module 4  |
 | 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |
 
 
