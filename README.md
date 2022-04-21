@@ -68,7 +68,7 @@ This workshop will cover:
 | 15:40 - 17:00 | Module 10 [[Slides]] [[Rscript]]   |
 | 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |
 
-## Places to get help, more info...
+# Places to get help, more info...
 
 * [RStudio Education](https://education.rstudio.com/)
 * [Quick-R](https://www.statmethods.net/)
