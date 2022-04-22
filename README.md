@@ -57,7 +57,8 @@ This workshop will cover:
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:15 | Module 6 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_Rscript.R)]        |
+| 09:00 - 10:15 | Module 6 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_Rscript.R)] [[Exercise Answers](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_answers_Rscript.R)]       |
+| Extra Info on Data "Objects" |  [[Intro R Objects](https://melindahiggins2000.github.io/N741_Spring2021_lesson04_dataWranglingDplyr/N741_IntroductionToRObjects_mkh.html#1)] [[Intro Factors](https://melindahiggins2000.github.io/N741_Spring2021_lesson04_dataWranglingDplyr/N741_RObjectsFactors_mkh.html#1)] |
 | 10:15 - 10:30 | _Break_            |
 | 10:30 - 12:00 | Module 7 [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/merging_datasets.html)] [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module07_Rscript.R)]       |
 | Datasets: | [[data1.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/data1.csv)] [[data2.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/data2.csv)] [[data3.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/data3.csv)] |
@@ -67,6 +68,7 @@ This workshop will cover:
 | 14:15 - 14:25 | _Break_      |
 | 14:25 - 15:30 | Module 9 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module09_Rscript.R)]     |
 | Dataset: | [[hospital_ops.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/hospital_ops.csv)] |
+| R Markdown Examples | [[RMD simple](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/MapReport_simple.Rmd)] [[HTML simple](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/MapReport_simple.html)] [[RMD params](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/MapReport_params.Rmd)] [[HTML params](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/MapReport_params.html)] [[RMD params choice](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/MapReport_params_choice.Rmd)] [[HTML params choice](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/MapReport_params_choice.html)] |
 | 15:30 - 15:40 | _Break_      |
 | 15:40 - 17:00 | Module 10 OPEN Discussion and Help   |
 | 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |

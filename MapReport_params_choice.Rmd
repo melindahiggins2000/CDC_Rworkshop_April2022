@@ -1,0 +1,49 @@
+---
+title: "Map Report"
+author: "Melinda Higgins"
+date: "4/22/2022"
+output: html_document
+params:
+  when: 
+    label: "Month:"
+    value: January
+    input: select
+    choices: [January, February]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(usmap)
+library(ggplot2)
+library(readr)
+hospital_ops <- read_csv("hospital_ops.csv")
+```
+
+This is a report for the month of `r params$when`.
+
+```{r}
+choice <- ifelse(params$when == "January",
+                 1, 2)
+
+library(dplyr)
+hosp1 <- hospital_ops %>%
+  select(State, Hospitals_Covid_Cases, Month) %>%
+  rename(state = State) %>%
+  filter(Month == choice)
+
+plot_usmap(data = hosp1,
+           values = "Hospitals_Covid_Cases",
+           color = "yellow") + 
+  scale_fill_continuous(
+    name = "Hospitals Reporting COVID Cases", 
+    type = "viridis") + 
+  theme(legend.position = "right") +
+  labs(title = "Hospitals Reporting COVID Cases in 2022",
+       subtitle = paste("Reported in", params$when),
+       caption = "Data from hospital_ops dataset")
+```
+
+
