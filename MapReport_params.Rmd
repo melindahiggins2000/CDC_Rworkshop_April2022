@@ -2,13 +2,15 @@
 title: "Map Report"
 author: "Melinda Higgins"
 date: "4/22/2022"
-output: html_document
+output:
+  html_document: default
+  word_document: default
 params:
   when: February
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
 knitr::opts_chunk$set(message = FALSE)
 

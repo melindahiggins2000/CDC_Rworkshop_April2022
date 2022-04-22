@@ -1,0 +1,32 @@
+---
+title: "Summary Table for Abalone Clean"
+author: "Melinda Higgins"
+date: "4/22/2022"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+load(file = "abalone_clean.RData")
+```
+
+This is a quick summary statistics table for the cleaned abalone dataset.
+
+```{r results="asis"}
+library(arsenal)
+tab1 <- tableby(adult ~ sex + length,
+                data = abalone_clean)
+summary(tab1, pfootnote = TRUE)
+```
+
+Here is another table of the dimension measurements.
+
+```{r results="asis"}
+tab1 <- tableby(adult ~ length + diameter + height,
+                data = abalone_clean)
+summary(tab1, pfootnote = TRUE)
+```
+

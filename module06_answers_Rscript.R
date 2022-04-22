@@ -165,6 +165,29 @@ abalone_clean <- abalone_clean %>%
                    )
     )
 
+# this also works
+abalone_clean <- abalone_clean %>%
+  mutate(adult = ifelse(sex == "I", "immature", "adult"))
+
+# check recoding
+abalone_clean %>%
+  with(table(sex, adult))
+
+# another option for cross tablulation
+library(gmodels)
+abalone_clean %>%
+  with(CrossTable(sex, adult))
+
+# save the cleaned dataset
+save(abalone_clean, file = "abalone_clean.RData")
+
+# useful for R markdown to make tables also
+library(arsenal)
+tab1 <- tableby(adult ~ sex + length,
+                data = abalone_clean)
+summary(tab1)
+
+
 # T-TEST ============================================
 # uses formula syntax
 # y ~ x (2 groups)
@@ -248,7 +271,7 @@ lm2 <- lm(rings ~ shucked_pct,
           data = abalone_clean)
 slm2 <- summary(lm2)
 
-tlm1 <- broom::tidy(lm2)
+tlm2 <- broom::tidy(lm2)
 abalone_clean_lm2 <- broom::augment(lm2)
 glm2 <- broom::glance(lm2)
 
