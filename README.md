@@ -57,15 +57,18 @@ This workshop will cover:
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:15 | Module 6 [[Slides]] [[Rscript]]        |
+| 09:00 - 10:15 | Module 6 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_Rscript.R)]        |
 | 10:15 - 10:30 | _Break_            |
-| 10:30 - 12:00 | Module 7 [[Slides]] [[Rscript]]       |
+| 10:30 - 12:00 | Module 7 [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/merging_datasets.html)] [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module07_Rscript.R)]       |
+| Datasets: | [[data1.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/data1.csv)] [[data2.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/data2.csv)] [[data3.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/data3.csv)] |
 | 12:00 - 13:00 | **LUNCH**            |
-| 13:00 - 14:15 | Module 8 [[Slides]] [[Rscript]]       |
+| 13:00 - 14:15 | Module 8 [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/pivot_example.html)] [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module08_Rscript.R)]       |
+| Datasets: | [[long1.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/long1.csv)] [[wide1.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/wide1.csv)] |
 | 14:15 - 14:25 | _Break_      |
-| 14:25 - 15:30 | Module 9 [[Slides]] [[Rscript]]     |
+| 14:25 - 15:30 | Module 9 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module09_Rscript.R)]     |
+| Dataset: | [[hospital_ops.csv](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/hospital_ops.csv)] |
 | 15:30 - 15:40 | _Break_      |
-| 15:40 - 17:00 | Module 10 [[Slides]] [[Rscript]]   |
+| 15:40 - 17:00 | Module 10 OPEN Discussion and Help   |
 | 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |
 
 # Places to get help, more info...
