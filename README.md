@@ -58,6 +58,7 @@ This workshop will cover:
 | Time          | Activity         |
 | :------------ | :--------------- |
 | 09:00 - 10:15 | Module 6 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_Rscript.R)] [[Exercise Answers](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_answers_Rscript.R)]       |
+| R Markdown Tables of Summary Stats |  [[abalone_clean.RData](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/abalone_clean.RData)]  [[R markdown](https://raw.githubusercontent.com/melindahiggins2000/CDC_Rworkshop_April2022/main/abalone_table.Rmd)]  [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/abalone_table.html)]    |
 | Extra Info on Data "Objects" |  [[Intro R Objects](https://melindahiggins2000.github.io/N741_Spring2021_lesson04_dataWranglingDplyr/N741_IntroductionToRObjects_mkh.html#1)] [[Intro Factors](https://melindahiggins2000.github.io/N741_Spring2021_lesson04_dataWranglingDplyr/N741_RObjectsFactors_mkh.html#1)] |
 | 10:15 - 10:30 | _Break_            |
 | 10:30 - 12:00 | Module 7 [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/merging_datasets.html)] [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module07_Rscript.R)]       |

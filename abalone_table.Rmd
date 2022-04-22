@@ -1,32 +1,110 @@
 ---
-title: "Summary Table for Abalone Clean"
+title: "Summary Statistics Tables for Abalone Clean"
 author: "Melinda Higgins"
 date: "4/22/2022"
 output:
-  word_document: default
   html_document: default
+  word_document: default
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warning = TRUE)
+knitr::opts_chunk$set(message = TRUE)
 
 load(file = "abalone_clean.RData")
 ```
 
-This is a quick summary statistics table for the cleaned abalone dataset.
+# Summary Statistics Tables for Cleaned Abalone Dataset
+
+## Summary stats using the `arsenal` package
+
+This is a quick summary statistics table for the cleaned abalone dataset made using the `arsenal package.
+
+NOTE: You need to add `results = "asis"` in the R chunk option in order for this table to render correctly when "knitted".
+
+Learn more at [https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html](https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html).
+
+### Look at sex, length, height, diameter by adult category
+
+Note: By default categorical data will perform a chi-square test for differences in the groups and ANOVA (or t-test for 2 groups) is run for the continuous data.
 
 ```{r results="asis"}
 library(arsenal)
-tab1 <- tableby(adult ~ sex + length,
+tab1 <- tableby(adult ~ sex + length + diameter + height,
                 data = abalone_clean)
 summary(tab1, pfootnote = TRUE)
 ```
 
-Here is another table of the dimension measurements.
+### Look at whole, shucked, viscera, shell weights by adult category
 
 ```{r results="asis"}
-tab1 <- tableby(adult ~ length + diameter + height,
+tab1 <- tableby(adult ~ wholeWeight + shuckedWeight +
+                  visceraWeight + shellWeight,
                 data = abalone_clean)
 summary(tab1, pfootnote = TRUE)
 ```
+
+## Another option with the `gtsummary` package
+
+I really like the `arsenal` package since it works really well for knitting to WORD, but the `gtsummary` also works ok with WORD and HTML and other formats also. And there seems to be more active development happening for the `gtsummary` package so it may be the future.
+
+Learn more at [https://www.danieldsjoberg.com/gtsummary/index.html](https://www.danieldsjoberg.com/gtsummary/index.html).
+
+### Look at sex, length, height, diameter by adult category
+
+Note: In the code below, I specifically designated that all categorical data would perform a chi-square test and for the continuous data the t-test is performed, see [https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html).
+
+I also changed the default statistics. The default is to report the median and IQR, I changed it to mean and SD - see [https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html).
+
+```{r}
+library(gtsummary)
+
+# make dataset with a few variables to summarize
+ab2 <- abalone_clean %>% 
+  select(sex, adult, length, diameter, height)
+
+table2 <- 
+  tbl_summary(
+    ab2,
+    by = adult, 
+    statistic = list(all_continuous() ~ "{mean} ({sd})"),
+    missing = "no" 
+  ) %>%
+  add_n() %>% 
+  add_p(test = list(all_continuous() ~ "t.test",
+                    all_categorical() ~ "chisq.test")) %>% 
+  modify_header(label = "**Variable**") %>% 
+  bold_labels() 
+
+table2
+```
+
+### Look at whole, shucked, viscera, shell weights by adult category
+
+In the code below, I changed the test to the non-parametrc wilcox.test.
+
+```{r}
+# make dataset with a few variables to summarize
+ab3 <- abalone_clean %>% 
+  select(adult, wholeWeight, shuckedWeight, 
+         visceraWeight, shellWeight)
+
+table3 <- 
+  tbl_summary(
+    ab3,
+    by = adult, 
+    missing = "no" 
+  ) %>%
+  add_n() %>% 
+  add_p(test = list(all_continuous() ~ "wilcox.test")) %>% 
+  modify_header(label = "**Variable**") %>% 
+  bold_labels() 
+
+table3
+```
+
+
 
