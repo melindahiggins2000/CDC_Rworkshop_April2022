@@ -55,6 +55,8 @@ This workshop will cover:
 
 ## Schedule
 
+_NOTE: For the R Markdown Files - Right Click on the Link and Choose "Save As" to save the file to your computer._
+
 | Time          | Activity         |
 | :------------ | :--------------- |
 | 09:00 - 10:15 | Module 6 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_Rscript.R)] [[Exercise Answers](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_answers_Rscript.R)]       |
