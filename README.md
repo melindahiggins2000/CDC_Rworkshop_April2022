@@ -55,12 +55,12 @@ This workshop will cover:
 
 ## Schedule
 
-_NOTE: For the R Markdown Files - Right Click on the Link and Choose "Save As" to save the file to your computer._
+_NOTE: For the R Markdown (RMD) Files - Right Click on the Link and Choose "Save As" to save the file to your computer._
 
 | Time          | Activity         |
 | :------------ | :--------------- |
 | 09:00 - 10:15 | Module 6 [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_Rscript.R)] [[Exercise Answers](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module06_answers_Rscript.R)]       |
-| R Markdown Tables of Summary Stats |  [[abalone_clean.RData](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/abalone_clean.RData)]  [[R markdown](https://raw.githubusercontent.com/melindahiggins2000/CDC_Rworkshop_April2022/main/abalone_table.Rmd)]  [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/abalone_table.html)]    |
+| R Markdown Tables of Summary Stats |  [[abalone_clean.RData](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/abalone_clean.RData)]  [[RMD](https://raw.githubusercontent.com/melindahiggins2000/CDC_Rworkshop_April2022/main/abalone_table.Rmd)]  [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/abalone_table.html)]    |
 | Extra Info on Data "Objects" |  [[Intro R Objects](https://melindahiggins2000.github.io/N741_Spring2021_lesson04_dataWranglingDplyr/N741_IntroductionToRObjects_mkh.html#1)] [[Intro Factors](https://melindahiggins2000.github.io/N741_Spring2021_lesson04_dataWranglingDplyr/N741_RObjectsFactors_mkh.html#1)] |
 | 10:15 - 10:30 | _Break_            |
 | 10:30 - 12:00 | Module 7 [[HTML](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/merging_datasets.html)] [[Rscript](https://melindahiggins2000.github.io/CDC_Rworkshop_April2022/module07_Rscript.R)]       |
@@ -75,6 +75,13 @@ _NOTE: For the R Markdown Files - Right Click on the Link and Choose "Save As" t
 | 15:30 - 15:40 | _Break_      |
 | 15:40 - 17:00 | Module 10 OPEN Discussion and Help   |
 | 17:00 - 17:30 | _Post workshop Q&A; one-on-one help_ |
+
+### Learn more about parametrized reports at:
+
+* [Ch 15 in R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/params-knit.html)
+* [Ch 17 in R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/parameterized-reports.html)
+* Example Blog [http://jenrichmond.rbind.io/post/2021-08-31-parameterised-penguins/](http://jenrichmond.rbind.io/post/2021-08-31-parameterised-penguins/)
+* Example Document [https://rpubs.com/jenrichmond/adelie](https://rpubs.com/jenrichmond/adelie)
 
 # Places to get help, more info...
 
